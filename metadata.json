@@ -1,0 +1,5 @@
+{
+  "name": "Fluxo Static Website AI Generator",
+  "description": "A powerful, multi-provider AI tool to generate complete static websites (HTML, CSS, JS) from text and image prompts with live preview and integrated code editing.",
+  "requestFramePermissions": []
+}
