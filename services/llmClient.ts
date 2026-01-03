@@ -34,7 +34,7 @@ Please output the COMPLETE updated code blocks for HTML, CSS, and JS.`
 
 async function handleGemini(provider: ProviderConfig, config: PromptConfig, prompt: string): Promise<WebsiteCode> {
   // As per instructions, the API key must be obtained exclusively from process.env.API_KEY
-  const apiKey = process.env.API_KEY;
+const apiKey = provider.apiKey || process.env.API_KEY;
   if (!apiKey) {
     throw new Error("Gemini API Key is missing (process.env.API_KEY).");
   }
@@ -71,7 +71,7 @@ async function handleGeneric(provider: ProviderConfig, config: PromptConfig, pro
   };
 
   // Prioritize user key from state, fallback to system key
-  const effectiveApiKey = provider.apiKey || process.env.API_KEY || '';
+  const effectiveApiKey = provider.apiKey;
   
   if (!effectiveApiKey) {
     throw new Error(`API Key for ${provider.name} is missing.`);
